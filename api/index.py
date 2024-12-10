@@ -6,10 +6,9 @@ from pymongo.server_api import ServerApi
 from flask_cors import CORS
 import os
 
-load_dotenv()
-MONGODB_URI = os.environ['MONGODB_URI']
 
-client = MongoClient(MONGODB_URI, server_api=ServerApi('1'), tls=True, serverSelectionTimeoutMS=5000, connectTimeoutMS=10000)
+
+client = MongoClient('mongodb+srv://feliperibeirots:5D1BmmOT6l4koRUk@cluster0.jdgyl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', server_api=ServerApi('1'), tls=True, serverSelectionTimeoutMS=5000, connectTimeoutMS=10000)
 db = client['EconoBalance']
 print(db.list_collection_names())
 user = db['User']
